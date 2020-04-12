@@ -17,17 +17,17 @@ export class CounterComponent implements OnInit {
   counterSubj = new Subject<number>();
 
   ngOnInit(): void {
-    const counter$ = this.counterSubj.pipe(
-      map((delta) => (vm: CounterVm): CounterVm => ({
-        ...vm,
-        counter: vm.counter + delta
-      }))
-    );
-
-    this.vm$ = merge(of({ counter: 0 }), counter$).pipe(
+    this.vm$ = merge(of({ counter: 0 }), this.counter$).pipe(
       scan((prevVm: CounterVm, mutationFn: (vm: CounterVm) => CounterVm) =>
         mutationFn(prevVm)
       )
     );
   }
+
+  private counter$ = this.counterSubj.pipe(
+    map((delta) => (vm: CounterVm): CounterVm => ({
+      ...vm,
+      counter: vm.counter + delta
+    }))
+  );
 }

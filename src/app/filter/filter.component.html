@@ -1,0 +1,9 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <input type="text" placeholder="Filter pokemons" (input)="filterSubj.next($event.target.value)">
+
+  <ul class="pokemon-list">
+    <li *ngFor="let pokemon of vm.pokemons">
+      {{ pokemon }}
+    </li>
+  </ul>
+</ng-container>

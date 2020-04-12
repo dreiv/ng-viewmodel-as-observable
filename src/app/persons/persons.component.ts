@@ -24,19 +24,7 @@ export class PersonsComponent implements OnInit {
   constructor(private personService: PersonService) {}
 
   ngOnInit(): void {
-    const personList$ = this.personService
-      .getPersons()
-      .pipe(map((persons) => (vm: PersonVm): PersonVm => ({ ...vm, persons })));
-
-    const personDetail$ = this.personDetailSubj.pipe(
-      mergeMap((person) => this.personService.getPersonDetail(person.id)),
-      map((personDetail) => (vm: PersonVm): PersonVm => ({
-        ...vm,
-        personDetail
-      }))
-    );
-
-    this.vm$ = merge(personList$, personDetail$).pipe(
+    this.vm$ = merge(this.personList$, this.personDetail$).pipe(
       scan(
         (vm: PersonVm, mutationFn: (vm: PersonVm) => PersonVm) =>
           mutationFn(vm),
@@ -44,4 +32,16 @@ export class PersonsComponent implements OnInit {
       )
     );
   }
+
+  private personList$ = this.personService
+    .getPersons()
+    .pipe(map((persons) => (vm: PersonVm): PersonVm => ({ ...vm, persons })));
+
+  private personDetail$ = this.personDetailSubj.pipe(
+    mergeMap((person) => this.personService.getPersonDetail(person.id)),
+    map((personDetail) => (vm: PersonVm): PersonVm => ({
+      ...vm,
+      personDetail
+    }))
+  );
 }
