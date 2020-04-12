@@ -1,0 +1,20 @@
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  }
+}
