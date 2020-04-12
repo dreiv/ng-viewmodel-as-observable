@@ -1,3 +1,12 @@
+:host {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+[type='text'] {
+  padding: 0.25rem 0.5rem;
+}
+
 .pokemon-list {
   margin: 0;
   padding: 0;
@@ -7,4 +16,8 @@
   border: 1px solid lightgray;
   max-height: 20rem;
   overflow: auto;
+
+  > li {
+    padding: 0.25rem 0.5rem;
+  }
 }
