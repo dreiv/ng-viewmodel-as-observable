@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --prod --base-href=/ng-multiselect/",
+    "build:prod": "ng build --prod --base-href=/ng-viewmodel-as-observable/",
     "test": "ng test",
     "lint": "tsc --noEmit && eslint . --ext js,ts --quiet --fix",
     "e2e": "ng e2e"
