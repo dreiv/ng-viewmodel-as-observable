@@ -43,4 +43,6 @@ export class PersonService {
 
   getPersonDetail = (id: string): Observable<PersonDetail> =>
     of(this.personDetails.find((detail) => detail.id == id));
+
+  getFirstPersonDetail = (): PersonDetail => this.personDetails[0];
 }

@@ -40,7 +40,7 @@ export class PersonsComponent implements OnInit {
       scan(
         (vm: PersonVm, mutationFn: (vm: PersonVm) => PersonVm) =>
           mutationFn(vm),
-        { persons: [], personDetail: null }
+        { persons: [], personDetail: this.personService.getFirstPersonDetail() }
       )
     );
   }
