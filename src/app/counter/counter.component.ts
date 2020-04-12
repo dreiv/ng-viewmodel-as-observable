@@ -1,7 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, Subject, merge, of } from 'rxjs';
 import { map, scan } from 'rxjs/operators';
-import { CounterVm } from './counter';
+
+interface CounterVm {
+  counter: number;
+}
 
 @Component({
   selector: 'app-counter',

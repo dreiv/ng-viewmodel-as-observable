@@ -1,0 +1,67 @@
+.persons-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.persons-list {
+  align-self: flex-start;
+  width: 12rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+
+  > p {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  border: 1px solid lightgrey;
+}
+
+.person-detail {
+  padding: 0.5rem 1rem;
+  flex: 1;
+  min-width: 6rem;
+  min-height: 20rem;
+  border: 1px solid lightgrey;
+}
+
+button:hover {
+  background-color: #ededed;
+}
+
+.person {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  &--selected {
+    background-color: #ededed;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+
+  &::before {
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    will-change: opacity;
+    transition: opacity 0.25s;
+
+    background-color: #ededed;
+    content: '';
+  }
+}

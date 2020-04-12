@@ -1,1 +1,27 @@
-<p>persons works!</p>
+<div class="persons-container" *ngIf="vm$ | async as vm">
+  <div class="persons-list">
+    <p>Persons:</p>
+
+    <ul>
+      <li
+        *ngFor="let person of vm.persons"
+        class="person"
+        [class.person--selected]="person.id == vm.personDetail?.id"
+        (click)="personDetailSubj.next(person)"
+      >
+        {{ person.nick }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="person-detail">
+    <p>Person Details:</p>
+
+    <dl>
+      <ng-container *ngFor="let entry of vm.personDetail | keyvalue: keepOrder">
+        <dt>{{ entry.key }}</dt>
+        <dd>{{ entry.value }}</dd>
+      </ng-container>
+    </dl>
+  </div>
+</div>
