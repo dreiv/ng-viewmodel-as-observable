@@ -1,0 +1,6 @@
+<ng-container *ngIf="vm$ | async as vm">
+  Current counter : {{ vm.counter }}
+
+  <button type="button" (click)="counterSubj.next(-1)">Decrement</button>
+  <button type="button" (click)="counterSubj.next(1)">Increment</button>
+</ng-container>
